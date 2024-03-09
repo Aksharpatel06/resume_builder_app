@@ -22,7 +22,7 @@ class _ExperienceState extends State<Experience> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Experience'),
       ),
@@ -72,7 +72,7 @@ class _ExperienceState extends State<Experience> {
                     height: 420,
                     width: 300,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Color(0xff1b1a1f),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
                     child: SingleChildScrollView(
