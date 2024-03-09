@@ -1,9 +1,16 @@
 import 'package:resume_builder_app/screen/menu/education.dart';
+import 'package:resume_builder_app/screen/menu/language.dart';
 import 'package:resume_builder_app/screen/menu/objective.dart';
 import 'package:resume_builder_app/screen/menu/personal_infomation.dart';
 
+import '../screen/menu/achievement.dart';
+import '../screen/menu/additionaldetails.dart';
 import '../screen/menu/experience.dart';
+import '../screen/menu/interests.dart';
+import '../screen/menu/project.dart';
+import '../screen/menu/publication.dart';
 import '../screen/menu/reference.dart';
+import '../screen/menu/skills.dart';
 
 List l1=[
   information,
@@ -11,6 +18,13 @@ List l1=[
   edu,
   experience,
   reference,
+  skillname,
+  interestname,
+  projects,
+  Languagename,
+  achievement,
+  publication,
+  additionaldetails
 ];
 
 List l2 =[

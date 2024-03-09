@@ -23,7 +23,7 @@ class _ReferenceState extends State<Reference> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Reference'),
       ),
@@ -73,7 +73,7 @@ class _ReferenceState extends State<Reference> {
                     height: 420,
                     width: 300,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Color(0xff1b1a1f),
                       borderRadius: BorderRadius.all(Radius.circular(15)),
                     ),
                     child: SingleChildScrollView(
@@ -195,7 +195,7 @@ class _ReferenceState extends State<Reference> {
                                           return 'please enter your degree';
                                         }
                                       },
-                                      controller: txtname,
+                                      controller: txtcomname,
                                       keyboardType: TextInputType.name,
                                       textInputAction: TextInputAction.next,
                                       decoration: const InputDecoration(
@@ -260,7 +260,7 @@ class _ReferenceState extends State<Reference> {
                                           'name':txtname,
                                           'jobtitle':txttitle,
                                           'email':txtmail,
-                                          'companyname':txtname,
+                                          'companyname':txtcomname,
                                           'phone':txtphone,
                                         };
                                       }

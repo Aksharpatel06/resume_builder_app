@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
-class Skills extends StatefulWidget {
-  const Skills({super.key});
+class interests extends StatefulWidget {
+  const interests({super.key});
 
   @override
-  State<Skills> createState() => _SkillsState();
+  State<interests> createState() => _interestsState();
 }
 
 bool isform = false;
 
-class _SkillsState extends State<Skills> {
+class _interestsState extends State<interests> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Skills'),
+        title: Text('interests'),
         actions: [
           InkWell(
             onTap: () {
               setState(() {
-                 Navigator.of(context).pop();
+                Navigator.of(context).pop();
               });
             },
             child: Container(
@@ -64,7 +64,7 @@ class _SkillsState extends State<Skills> {
                     color: Colors.white,
                   ),
                   Text(
-                    'Add Skills  ',
+                    'Add interests  ',
                     style: TextStyle(color: Colors.white),
                   )
                 ],
@@ -72,46 +72,45 @@ class _SkillsState extends State<Skills> {
             ),
           ),
           SizedBox(height: 50),
-          (isform)?Container(
-            height: 590.3,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.only(topRight: Radius.circular(20),topLeft: Radius.circular(20))
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: List.generate(skillsbool.length, (index) => check(index))
-              ),
-            ),
-          ):Container(),
+          (isform)
+              ? Container(
+                  height: 590.3,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20),
+                          topLeft: Radius.circular(20))),
+                  child: SingleChildScrollView(
+                    child: Column(
+                        children: List.generate(
+                            interestbool.length, (index) => check(index))),
+                  ),
+                )
+              : Container(),
         ],
       ),
     );
   }
-  Widget check(int? index)
-  {
+  Widget check(int? index) {
     return CheckboxListTile(
-      title: Text('${skillsname[index!]}'),
-      value: skillsbool[index!],
+      title: Text('${interestsname[index!]}'),
+      value: interestbool[index!],
       onChanged: (value) {
         setState(() {
-          skillsbool[index!] = value!;
-          if(value==true)
-            {
-              skillname.add(skillsname[index]);
-              print(skillname);
-            }
-          else{
-            skillname.remove(skillsname[index]);
-            print(skillname);
+          interestbool[index!] = value!;
+          if (value == true) {
+            interestname.add(interestsname[index]);
+          } else {
+            interestname.remove(interestsname[index]);
           }
         });
       },
     );
   }
 }
-List skillname=[];
-List skillsbool = [
+
+List interestname = [];
+List interestbool = [
   false,
   false,
   false,
@@ -145,37 +144,39 @@ List skillsbool = [
   false,
   false,
 ];
-List skillsname = [
-  'Active listening',
-  'Adaptability',
-  'Attention to detail',
-  'Collaboration',
-  'Communication',
-  'Computer',
-  'Conflict resolution',
-  'Content management',
-  'Creativity',
-  'Critical thinking',
-  'Customer Service',
-  'Data analysis',
-  'Decision-making',
-  'Emotional intelligence',
-  'G-Suite',
-  'Interpersonal communication',
-  'Leadership',
-  'Management',
+
+
+List interestsname = [
+  'Art',
+  'Basketball',
+  'Blogging',
+  'Calligraphy',
+  'Camping',
+  'community involvement',
+  'Cycling',
+  'Dance',
+  'Exploring other cultures',
+  'Football',
+  'Gardening',
+  'Journaling',
+  'Learning languages',
+  'Listening to music',
+  'Making music',
   'Marketing',
-  'MS Office',
-  'Organization',
-  'Planning and coordination',
-  'Problem solving',
-  'Project management',
-  'public relation',
-  'Self discipline',
-  'Self motivated',
-  'Teamwork',
-  'Time management',
+  'Mountain climbing',
+  'Networking events',
+  'Painting',
+  'Photography',
+  'Podcasting',
+  'Public speaking',
+  'Reading',
+  'Sketching',
+  'Sports',
+  'Stand-up comedy',
+  'Swimming',
+  'Travel',
+  'Volleyball',
+  'Volunteering',
   'Writing',
-  'Analytical skills',
-  'Research skills'
+  'Yoga',
 ];

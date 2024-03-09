@@ -13,7 +13,7 @@ class _menuscreenState extends State<menuscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile'),
+        title: const Text('Profile'),
         actions: [
           Container(
             height: 35,
@@ -23,9 +23,9 @@ class _menuscreenState extends State<menuscreen> {
               borderRadius: BorderRadius.circular(10),
             ),
             alignment: Alignment.center,
-            child: Text('view',style: TextStyle(color: Colors.white),),
+            child: const Text('view',style: TextStyle(color: Colors.white),),
           ),
-          SizedBox(width: 15,),
+          const SizedBox(width: 15,),
         ],
       ),
       body: Padding(
@@ -33,7 +33,7 @@ class _menuscreenState extends State<menuscreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               InkWell(
                 onTap: () {
                   Navigator.of(context).pushNamed('/person');
@@ -41,16 +41,16 @@ class _menuscreenState extends State<menuscreen> {
                 child: Row(
                   children: [
                     Icon(Icons.person,color: Colors.blue.shade900,size: 25,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
                       child: Text('Personal Info',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
               InkWell(
                 onTap: () {
                   Navigator.of(context).pushNamed('/objective');
@@ -58,16 +58,16 @@ class _menuscreenState extends State<menuscreen> {
                 child: Row(
                   children: [
                     Icon(Icons.flag,color: Colors.blue.shade900,size: 25,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
                       child: Text('Objective',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
               InkWell(
                 onTap: () {
                   setState(() {
@@ -77,16 +77,16 @@ class _menuscreenState extends State<menuscreen> {
                 child: Row(
                   children: [
                     Icon(Icons.school,color: Colors.blue.shade900,size: 25,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
                       child: Text('Education',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
               InkWell(
                 onTap: () {
                   setState(() {
@@ -96,16 +96,16 @@ class _menuscreenState extends State<menuscreen> {
                 child: Row(
                   children: [
                     Icon(Icons.security,color: Colors.blue.shade900,size: 25,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
                       child: Text('Skills',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
               InkWell(
                 onTap: () {
                   setState(() {
@@ -115,16 +115,16 @@ class _menuscreenState extends State<menuscreen> {
                 child: Row(
                   children: [
                     Icon(Icons.work,color: Colors.blue.shade900,size: 25,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
                       child: Text('Experience',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
               InkWell(
                 onTap: () {
                   setState(() {
@@ -134,116 +134,135 @@ class _menuscreenState extends State<menuscreen> {
                 child: Row(
                   children: [
                     Icon(Icons.person_add,color: Colors.blue.shade900,size: 25,),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 18.0),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
                       child: Text('Reference',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.only(right: 208.0),
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
+              const Padding(
+                padding: EdgeInsets.only(right: 208.0),
                 child: Text('More Sections',style: TextStyle(color: Colors.grey,fontSize: 18),),
               ),
-              SizedBox(height: 20,),
-              Row(
-                children: [
-                  Icon(Icons.folder,color: Colors.blue.shade900,size: 25,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Text('Project',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
-                  ),
-                ],
+              const SizedBox(height: 20,),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                  });
+                  Navigator.of(context).pushNamed('/project');
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.folder,color: Colors.blue.shade900,size: 25,),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
+                      child: Text('Project',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
-              Row(
-                children: [
-                  Icon(Icons.emoji_events_outlined,color: Colors.blue.shade900,size: 25,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Text('Interest',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
-                  ),
-                ],
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                  });
+                  Navigator.of(context).pushNamed('/interests');
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.emoji_events_outlined,color: Colors.blue.shade900,size: 25,),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
+                      child: Text('Interest',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
-              Row(
-                children: [
-                  Icon(Icons.folder,color: Colors.blue.shade900,size: 25,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Text('Project',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
-                  ),
-                ],
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                  });
+                  Navigator.of(context).pushNamed('/Language');
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.language,color: Colors.blue.shade900,size: 25,),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
+                      child: Text('Language',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
-              Row(
-                children: [
-                  Icon(Icons.language,color: Colors.blue.shade900,size: 25,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Text('Language',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
-                  ),
-                ],
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                  });
+                  Navigator.of(context).pushNamed('/achievement');
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.stars,color: Colors.blue.shade900,size: 25,),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
+                      child: Text('Achievement',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
-              Row(
-                children: [
-                  Icon(Icons.stars,color: Colors.blue.shade900,size: 25,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Text('Achievement',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
-                  ),
-                ],
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                  });
+                  Navigator.of(context).pushNamed('/publication');
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.feed,color: Colors.blue.shade900,size: 25,),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
+                      child: Text('Publication',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
-              Row(
-                children: [
-                  Icon(Icons.feed,color: Colors.blue.shade900,size: 25,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Text('Publication',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
-                  ),
-                ],
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                  });
+                  Navigator.of(context).pushNamed('/ad');
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.lyrics,color: Colors.blue.shade900,size: 25,),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 18.0),
+                      child: Text('Additional Details',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
-              Row(
-                children: [
-                  Icon(Icons.lyrics,color: Colors.blue.shade900,size: 25,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Text('Additional Details',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
-              SizedBox(height: 10,),
-              Row(
-                children: [
-                  Icon(CupertinoIcons.signature,color: Colors.blue.shade900,size: 25,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 18.0),
-                    child: Text('Signature',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 18),),
-                  ),
-                ],
-              ),
-              SizedBox(height: 10,),
-              Divider(thickness: 1,),
+              const SizedBox(height: 10,),
+              const Divider(thickness: 1,),
+              const SizedBox(height: 10,),
             ],
           ),
         ),
