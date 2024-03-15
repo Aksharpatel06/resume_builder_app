@@ -14,14 +14,23 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool istext = false;
 
 TextEditingController txtfname = TextEditingController();
+String fname = txtfname.text;
 TextEditingController txtlname = TextEditingController();
+String lname = txtlname.text;
 TextEditingController txtpro = TextEditingController();
+String pro = txtpro.text;
 TextEditingController txtgen = TextEditingController();
+String gen = txtgen.text;
 TextEditingController txtnat = TextEditingController();
+String nat = txtnat.text;
 TextEditingController txtdt = TextEditingController();
+String dt = txtdt.text;
 TextEditingController txtphone = TextEditingController();
+String phone = txtphone.text;
 TextEditingController txtmail = TextEditingController();
+String mail = txtmail.text;
 TextEditingController txtaddress = TextEditingController();
+String address = txtaddress.text;
 
 Map information={};
 
@@ -35,21 +44,24 @@ class _PersoninfoState extends State<Personinfo> {
           InkWell(
             onTap: () {
               setState(() {
-                if(formkey.currentState!.validate())
-                  {
-                    Navigator.of(context).pop();
+                // print(FileImage(imgpath!));
+                Navigator.of(context).pushNamed('/pdf');
+
+                // if(formkey.currentState!.validate())
+                //   {
                     information ={
-                      'firstname':txtfname,
-                      'lastname':txtlname,
-                      'profession':txtpro,
-                      'gender':txtgen,
-                      'nationality':txtnat,
-                      'dateofbirth':txtdt,
-                      'phone':txtphone,
-                      'emailaddress':txtmail,
-                      'address':txtaddress,
+                      'img':imgpath,
+                      'firstname':fname,
+                      'lastname':lname,
+                      'profession':pro,
+                      'gender':gen,
+                      'nationality':nat,
+                      'dateofbirth':dt,
+                      'phone':phone,
+                      'emailaddress':mail,
+                      'address':address,
                     };
-                  }
+                  // }
               });
             },
             child: Container(
@@ -305,7 +317,7 @@ class _PersoninfoState extends State<Personinfo> {
                       child: TextFormField(
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'please enter your national';
+                            return 'please enter your date of birth';
                           }
                         },
                         controller: txtdt,
@@ -373,7 +385,7 @@ class _PersoninfoState extends State<Personinfo> {
                           }
                         },
                         controller: txtmail,
-                        keyboardType: TextInputType.phone,
+                        keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.newline,
                         decoration: const InputDecoration(
                           label: Text(
@@ -445,7 +457,7 @@ class _PersoninfoState extends State<Personinfo> {
   }
 
   void setImage() async {
-    XFile? images = await picker.pickImage(source: ImageSource.gallery);
+    XFile? images = await picker.pickImage(source: ImageSource.camera);
     setState(() {
       imgpath = File(images!.path);
     });

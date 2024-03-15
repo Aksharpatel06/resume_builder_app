@@ -12,6 +12,7 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool isform =false;
 
 TextEditingController txtname = TextEditingController();
+String name = txtname.text;
 Map projects ={
 };
 
@@ -125,7 +126,7 @@ class _projectState extends State<project> {
                                       {
                                         Navigator.of(context).pop();
                                         projects = {
-                                          'name':txtname,
+                                          'name':name,
                                         };
                                       }
                                     });

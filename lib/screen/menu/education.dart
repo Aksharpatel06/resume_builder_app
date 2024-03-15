@@ -12,9 +12,13 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool isform =false;
 
 TextEditingController txtname = TextEditingController();
+String name=txtname.text;
 TextEditingController txtdegree = TextEditingController();
+String degree=txtdegree.text;
 TextEditingController txtstart = TextEditingController();
+String start=txtstart.text;
 TextEditingController txtend = TextEditingController();
+String end=txtend.text;
 
 Map edu ={};
 
@@ -215,10 +219,10 @@ class _educationState extends State<education> {
                                 {
                                   Navigator.of(context).pop();
                                   edu = {
-                                    'schoolname':txtname,
-                                    'degree':txtdegree,
-                                    'startyear':txtstart,
-                                    'endyear':txtend,
+                                    'schoolname':name,
+                                    'degree':degree,
+                                    'startyear':start,
+                                    'endyear':end,
                                   };
                                 }
                               },

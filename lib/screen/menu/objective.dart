@@ -20,80 +20,81 @@ class _objectiveState extends State<objective> {
   @override
   Widget build(BuildContext context) {
     TextEditingController txtobjective = TextEditingController(text:text);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Objective'),
-        actions: [
-          InkWell(
-            onTap: () {
-              setState(() {
+    return Form(
+      key: formkey,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('Objective'),
+          actions: [
+            InkWell(
+              onTap: () {
                 if(formkey.currentState!.validate())
                 {
+                  fixtext=txtobjective.text;
                   Navigator.of(context).pop();
-                  fixtext=text;
                 }
-              });
-            },
-            child: Container(
-              height: 35,
-              width: 70,
-              decoration: BoxDecoration(
-                color: Colors.blue.shade900,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              alignment: Alignment.center,
-              child: Text(
-                'save',
-                style: TextStyle(color: Colors.white),
+              },
+              child: Container(
+                height: 35,
+                width: 70,
+                decoration: BoxDecoration(
+                  color: Colors.blue.shade900,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                alignment: Alignment.center,
+                child: Text(
+                  'save',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            width: 15,
-          ),
-        ],
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          IndexedStack(
-            index: indexnumber,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return 'please enter your objective';
-                    }
-                  },
-                  controller: txtobjective,
-                  keyboardType: TextInputType.name,
-                  textInputAction: TextInputAction.newline,
-                  maxLines: 4,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+            SizedBox(
+              width: 15,
+            ),
+          ],
+        ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            IndexedStack(
+              index: indexnumber,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'please enter your objective';
+                      }
+                    },
+                    controller: txtobjective,
+                    keyboardType: TextInputType.name,
+                    textInputAction: TextInputAction.newline,
+                    maxLines: 4,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Text(
-              'Objective',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ],
             ),
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-                children: List.generate(
-                    l2.length, (index) => text1(l2[index], index))),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                'Objective',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                  children: List.generate(
+                      l2.length, (index) => text1(l2[index], index))),
+            )
+          ],
+        ),
       ),
     );
   }

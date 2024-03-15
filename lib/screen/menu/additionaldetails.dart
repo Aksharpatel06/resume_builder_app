@@ -12,6 +12,7 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool isform =false;
 
 TextEditingController txtname = TextEditingController();
+String name = txtname.text;
 Map additionaldetails ={
 };
 
@@ -125,7 +126,7 @@ class _AdditionalDetailsState extends State<AdditionalDetails> {
                                       {
                                         Navigator.of(context).pop();
                                         additionaldetails = {
-                                          'name':txtname,
+                                          'name':name,
                                         };
                                       }
                                     });

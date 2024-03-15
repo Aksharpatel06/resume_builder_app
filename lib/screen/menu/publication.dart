@@ -12,8 +12,12 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool isform =false;
 
 TextEditingController txtname = TextEditingController();
+String name = txtname.text;
 TextEditingController txtauthor = TextEditingController();
+String author = txtauthor.text;
 TextEditingController txtdate = TextEditingController();
+String date = txtdate.text;
+
 
 
 Map publication ={};
@@ -192,9 +196,9 @@ class _PublicationState extends State<Publication> {
                                       {
                                         Navigator.of(context).pop();
                                         publication = {
-                                          'name':txtname,
-                                          'author':txtauthor,
-                                          'date':txtname,
+                                          'name':name,
+                                          'author':author,
+                                          'date':name,
                                         };
                                       }
                                     });

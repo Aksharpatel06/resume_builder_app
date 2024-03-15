@@ -12,6 +12,7 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool isform =false;
 
 TextEditingController txtname = TextEditingController();
+String name = txtname.text;
 Map achievement ={
 };
 
@@ -125,7 +126,7 @@ class _AchievementState extends State<Achievement> {
                                       {
                                         Navigator.of(context).pop();
                                         achievement = {
-                                          'name':txtname,
+                                          'name':name,
                                         };
                                       }
                                     });

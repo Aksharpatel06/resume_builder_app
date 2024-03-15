@@ -12,10 +12,16 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool isform =false;
 
 TextEditingController txtname = TextEditingController();
+String name = txttitle.text;
+
 TextEditingController txttitle = TextEditingController();
+String title = txttitle.text;
 TextEditingController txtcomname = TextEditingController();
+String comname = txtcomname.text;
 TextEditingController txtmail = TextEditingController();
+String mail = txtmail.text;
 TextEditingController txtphone = TextEditingController();
+String phone = txtphone.text;
 
 Map reference ={};
 
@@ -257,11 +263,11 @@ class _ReferenceState extends State<Reference> {
                                       {
                                         Navigator.of(context).pop();
                                         reference = {
-                                          'name':txtname,
-                                          'jobtitle':txttitle,
-                                          'email':txtmail,
-                                          'companyname':txtcomname,
-                                          'phone':txtphone,
+                                          'name':name,
+                                          'jobtitle':title,
+                                          'email':mail,
+                                          'companyname':comname,
+                                          'phone':phone,
                                         };
                                       }
                                     });

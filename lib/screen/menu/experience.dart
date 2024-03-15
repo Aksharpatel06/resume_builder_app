@@ -12,9 +12,13 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool isform =false;
 
 TextEditingController txttitle = TextEditingController();
+String title = txttitle.text;
 TextEditingController txtname = TextEditingController();
+String name = txtname.text;
 TextEditingController txtstart = TextEditingController();
+String start = txtstart.text;
 TextEditingController txtend = TextEditingController();
+String end = txtend.text;
 
 Map experience ={};
 
@@ -224,10 +228,10 @@ class _ExperienceState extends State<Experience> {
                                       {
                                         Navigator.of(context).pop();
                                         experience = {
-                                          'jobtitle':txttitle,
-                                          'companyname':txtname,
-                                          'startyear':txtstart,
-                                          'endyear':txtend,
+                                          'jobtitle':title,
+                                          'companyname':name,
+                                          'startyear':start,
+                                          'endyear':end,
                                         };
                                       }
                                     });

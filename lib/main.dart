@@ -13,6 +13,7 @@ import 'package:resume_builder_app/screen/menu/publication.dart';
 import 'package:resume_builder_app/screen/menu/reference.dart';
 import 'package:resume_builder_app/screen/menu/skills.dart';
 import 'package:resume_builder_app/screen/menuscreen.dart';
+import 'package:resume_builder_app/screen/pdf.dart';
 import 'package:resume_builder_app/screen/splashscreen.dart';
 
 void main() {
@@ -43,8 +44,9 @@ class MyApp extends StatelessWidget {
         '/interests':(context)=>const interests(),
         '/Language':(context)=>const Language(),
         '/achievement':(context)=>const Achievement(),
-        '/publication':(context) => Publication(),
+        '/publication':(context) => const Publication(),
         '/ad':(context) => const AdditionalDetails(),
+        '/pdf':(context) => pdf(),
       },
     );
   }

@@ -38,7 +38,7 @@ class _homescreenState extends State<homescreen> {
                           ),
                           child: Icon(
                             Icons.notifications_active_outlined,
-                            color: Colors.black,
+                            // color: Colors.black,
                           )),
                       Container(
                           height: 40,
@@ -50,7 +50,7 @@ class _homescreenState extends State<homescreen> {
                           ),
                           child: Icon(
                             Icons.menu,
-                            color: Colors.black,
+                            // color: Colors.black,
                           )),
                     ],
                   ),
@@ -92,7 +92,10 @@ class _homescreenState extends State<homescreen> {
             ),
             Container(
               height: 60,
-              color: Colors.grey.shade200,
+              decoration: BoxDecoration(
+                border: Border(top: BorderSide(color: Colors.grey.shade200,)),
+                borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(10))
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -102,7 +105,7 @@ class _homescreenState extends State<homescreen> {
                       Container(
                         width: 50,
                         decoration: BoxDecoration(
-                          color: Colors.indigo.shade100,
+                          // color: Colors.indigo.shade100,
                           borderRadius: BorderRadius.all(Radius.circular(5)),
                         ),
                         child: Icon(Icons.home),
@@ -113,8 +116,8 @@ class _homescreenState extends State<homescreen> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.download,color: Colors.grey.shade600,),
-                      Text('Download',style: TextStyle(color: Colors.grey.shade600,),)
+                      Icon(Icons.download,),
+                      Text('Download',style: TextStyle(),)
                     ],
                   ),
                 ],
