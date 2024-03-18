@@ -11,11 +11,11 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
 bool isform =false;
 
-TextEditingController txtname = TextEditingController();
+TextEditingController txtname = TextEditingController(text: 'wghvs');
 String name = txtname.text;
-TextEditingController txtauthor = TextEditingController();
+TextEditingController txtauthor = TextEditingController(text: 'wdvch');
 String author = txtauthor.text;
-TextEditingController txtdate = TextEditingController();
+TextEditingController txtdate = TextEditingController(text: 'wgvudcshb');
 String date = txtdate.text;
 
 
@@ -198,7 +198,7 @@ class _PublicationState extends State<Publication> {
                                         publication = {
                                           'name':name,
                                           'author':author,
-                                          'date':name,
+                                          'date':date,
                                         };
                                       }
                                     });

@@ -11,16 +11,15 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
 bool isform =false;
 
-TextEditingController txtname = TextEditingController();
-String name = txttitle.text;
-
-TextEditingController txttitle = TextEditingController();
+TextEditingController txtname = TextEditingController(text: 'egj');
+String name = txtname.text;
+TextEditingController txttitle = TextEditingController(text: 'cdgh');
 String title = txttitle.text;
-TextEditingController txtcomname = TextEditingController();
+TextEditingController txtcomname = TextEditingController(text: 'vcdgh');
 String comname = txtcomname.text;
-TextEditingController txtmail = TextEditingController();
+TextEditingController txtmail = TextEditingController(text: 'vdgszbj');
 String mail = txtmail.text;
-TextEditingController txtphone = TextEditingController();
+TextEditingController txtphone = TextEditingController(text: 'fgvsdchj');
 String phone = txtphone.text;
 
 Map reference ={};

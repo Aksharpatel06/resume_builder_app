@@ -11,13 +11,13 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
 bool isform =false;
 
-TextEditingController txtname = TextEditingController();
+TextEditingController txtname = TextEditingController(text: 'niraj school');
 String name=txtname.text;
-TextEditingController txtdegree = TextEditingController();
+TextEditingController txtdegree = TextEditingController(text: 'bcom');
 String degree=txtdegree.text;
-TextEditingController txtstart = TextEditingController();
+TextEditingController txtstart = TextEditingController(text: '2006');
 String start=txtstart.text;
-TextEditingController txtend = TextEditingController();
+TextEditingController txtend = TextEditingController(text: '2019');
 String end=txtend.text;
 
 Map edu ={};

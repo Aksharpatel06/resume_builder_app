@@ -13,18 +13,18 @@ import '../screen/menu/reference.dart';
 import '../screen/menu/skills.dart';
 
 List l1=[
-  information,
-  fixtext,
-  edu,
-  experience,
-  reference,
-  skillname,
-  interestname,
-  projects,
-  Languagename,
-  achievement,
-  publication,
-  additionaldetails
+  information,//0
+  fixtext,//1
+  edu,//2
+  experience,//3
+  reference,//4
+  skillname,//5
+  interestname,//6
+  projects,//7
+  Languagename,//8
+  achievement,//9
+  publication,//10
+  additionaldetails//11
 ];
 
 List l2 =[

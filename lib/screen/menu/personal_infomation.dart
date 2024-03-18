@@ -13,23 +13,23 @@ class Personinfo extends StatefulWidget {
 GlobalKey<FormState> formkey = GlobalKey<FormState>();
 bool istext = false;
 
-TextEditingController txtfname = TextEditingController();
+TextEditingController txtfname = TextEditingController(text: 'Akshar');
 String fname = txtfname.text;
-TextEditingController txtlname = TextEditingController();
+TextEditingController txtlname = TextEditingController(text: 'Patel');
 String lname = txtlname.text;
-TextEditingController txtpro = TextEditingController();
+TextEditingController txtpro = TextEditingController(text: 'Developer');
 String pro = txtpro.text;
-TextEditingController txtgen = TextEditingController();
+TextEditingController txtgen = TextEditingController(text: 'Male');
 String gen = txtgen.text;
-TextEditingController txtnat = TextEditingController();
+TextEditingController txtnat = TextEditingController(text: 'Indian');
 String nat = txtnat.text;
-TextEditingController txtdt = TextEditingController();
+TextEditingController txtdt = TextEditingController(text: '03-03-2006');
 String dt = txtdt.text;
-TextEditingController txtphone = TextEditingController();
+TextEditingController txtphone = TextEditingController(text: "8956237041");
 String phone = txtphone.text;
-TextEditingController txtmail = TextEditingController();
+TextEditingController txtmail = TextEditingController(text: 'admin@gmail.com');
 String mail = txtmail.text;
-TextEditingController txtaddress = TextEditingController();
+TextEditingController txtaddress = TextEditingController(text: '120,asd colony,anjami,as,surat');
 String address = txtaddress.text;
 
 Map information={};
@@ -44,8 +44,7 @@ class _PersoninfoState extends State<Personinfo> {
           InkWell(
             onTap: () {
               setState(() {
-                // print(FileImage(imgpath!));
-                Navigator.of(context).pushNamed('/pdf');
+                Navigator.of(context).pop();
 
                 // if(formkey.currentState!.validate())
                 //   {
@@ -57,7 +56,7 @@ class _PersoninfoState extends State<Personinfo> {
                       'gender':gen,
                       'nationality':nat,
                       'dateofbirth':dt,
-                      'phone':phone,
+                      'phone':txtphone.text,
                       'emailaddress':mail,
                       'address':address,
                     };
@@ -457,7 +456,7 @@ class _PersoninfoState extends State<Personinfo> {
   }
 
   void setImage() async {
-    XFile? images = await picker.pickImage(source: ImageSource.camera);
+    XFile? images = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
       imgpath = File(images!.path);
     });

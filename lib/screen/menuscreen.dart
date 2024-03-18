@@ -1,14 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pdf/pdf.dart';
-import 'package:pdf/widgets.dart' as pd;
 
-import 'package:printing/printing.dart';
-
-import '../utils/list.dart';
 
 class menuscreen extends StatefulWidget {
   const menuscreen({super.key});
@@ -26,43 +19,9 @@ class _menuscreenState extends State<menuscreen> {
         actions: [
           InkWell(
             onTap: () async {
-              setState(() {
-              });
-              final pdf = pd.Document();
-              final img = await rootBundle.load('asset/image/background.png');
-              final imageBytes = img.buffer.asUint8List();
-              print(l1[0]['img']);
+              setState(() {});
+              Navigator.of(context).pushNamed('/pdf');
 
-              pdf.addPage(pd.Page(
-                  pageFormat: PdfPageFormat.a4,
-                  build: (pd.Context context) {
-                    return pd.Stack(children: [
-                      pd.Image(pd.MemoryImage(imageBytes),),
-                    pd.Row(children: [
-                        pd.Center(
-                          child: pd.Column(
-                              children: [
-                            pd.Container(
-                              height: 100,
-                              width: 100,
-                              decoration: pd.BoxDecoration(
-                                  shape: pd.BoxShape.circle,
-                                  color: PdfColors.white,
-                                  border: pd.Border.all(color: PdfColors.black)),
-                              // child: pd.Image(
-                              //   pd.MemoryImage(
-                              //     File(l1[0]['img']).readAsBytesSync(),
-                              //   ),
-                              // ),
-                            ),
-                          ]),
-                        )
-                      ])
-                    ]); // Center
-                  })); //
-
-              await Printing.layoutPdf(
-                  onLayout: (PdfPageFormat format) async => pdf.save()); // Page
             },
             child: Container(
               height: 35,
@@ -489,4 +448,14 @@ class _menuscreenState extends State<menuscreen> {
       ),
     );
   }
+}
+
+Widget name(String? name, int index) {
+  return (index < 5)
+      ? Text(
+          name!,
+          style: const TextStyle(
+              fontWeight: FontWeight.w400, fontSize: 6, color: Colors.black),
+        )
+      : Container();
 }

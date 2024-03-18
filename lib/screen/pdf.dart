@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pd;
 
+import 'package:printing/printing.dart';
+import 'package:resume_builder_app/screen/menu/personal_infomation.dart';
 import '../utils/list.dart';
 
 class pdf extends StatefulWidget {
-  const pdf({super.key});
+   pdf({super.key});
 
   @override
   State<pdf> createState() => _pdfState();
@@ -62,7 +67,7 @@ class _pdfState extends State<pdf> {
                                   fontSize: 6,
                                   color: Colors.black),
                             ),
-                            Text(l1[0]['phone'],
+                            Text('${l1[0]['phone']}',
                                 style: const TextStyle(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 6,
@@ -298,7 +303,7 @@ class _pdfState extends State<pdf> {
                                   color: Colors.black),
                             ),
                             Text(
-                              'chbja',
+                              l1[2]['degree'],
                               style: TextStyle(
                                   fontWeight: FontWeight.w300,
                                   fontSize: 6,
@@ -306,32 +311,13 @@ class _pdfState extends State<pdf> {
                             )
                           ],
                         ),
-                        SizedBox(width: 135),
-                        Row(
-                          children: [
-                            Text(
-                              'dagh',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 6,
-                                  color: Colors.blue.shade200),
-                            ),
-                            Text(
-                              ' - ',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 6,
-                                  color: Colors.blue.shade200),
-                            ),
-                            Text(
-                              'dagh',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 6,
-                                  color: Colors.blue.shade200),
-                            ),
-                          ],
-                        )
+                        SizedBox(width: 115),
+                        Text('${l1[2]['startyear']} - ${l1[2]['endyear']}',textAlign: TextAlign.end,
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              fontSize: 6,
+                              color: Colors.blue.shade200),
+                        ),
                       ],
                     ),
                     const SizedBox(
@@ -348,7 +334,7 @@ class _pdfState extends State<pdf> {
                       height: 5,
                     ),
                     Text(
-                      'qdgah',
+                      l1[7]['name'],
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 6,
@@ -373,14 +359,14 @@ class _pdfState extends State<pdf> {
                         Column(
                           children: [
                             Text(
-                              'qdgah',
+                              l1[10]['name'],
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 6,
                                   color: Colors.black),
                             ),
                             Text(
-                              'chbja',
+                              l1[10]['author'],
                               style: TextStyle(
                                   fontWeight: FontWeight.w300,
                                   fontSize: 6,
@@ -388,9 +374,9 @@ class _pdfState extends State<pdf> {
                             )
                           ],
                         ),
-                        SizedBox(width: 150),
+                        SizedBox(width: 130),
                         Text(
-                          'dagh',
+                          l1[10]['date'],
                           style: TextStyle(
                               fontWeight: FontWeight.w300,
                               fontSize: 6,
@@ -412,7 +398,7 @@ class _pdfState extends State<pdf> {
                       height: 5,
                     ),
                     Text(
-                      'qdgah',
+                      l1[9]['name'],
                       style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 6,
@@ -434,14 +420,14 @@ class _pdfState extends State<pdf> {
                         Column(
                           children: [
                             Text(
-                              'qdgah',
+                              l1[4]['name'],
                               style: TextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 6,
                                   color: Colors.black),
                             ),
                             Text(
-                              'chbja',
+                              l1[4]['jobtitle'],
                               style: TextStyle(
                                   fontWeight: FontWeight.w300,
                                   fontSize: 6,
@@ -451,15 +437,16 @@ class _pdfState extends State<pdf> {
                         ),
                       ],
                     ),
-                    Text('* ehfbwd',style: TextStyle(
+                    SizedBox(height: 5),
+                    Text('* ${l1[4]['email']}',style: TextStyle(
                         fontWeight: FontWeight.w300,
                         fontSize: 6,
                         color: Colors.black),),
-                    Text('* ehfbwd',style: TextStyle(
+                    Text('* ${l1[4]['companyname']}',style: TextStyle(
                         fontWeight: FontWeight.w300,
                         fontSize: 6,
                         color: Colors.black),),
-                    Text('* ehfbwd',style: TextStyle(
+                    Text('* ${l1[4]['phone']}',style: TextStyle(
                         fontWeight: FontWeight.w300,
                         fontSize: 6,
                         color: Colors.black),)
@@ -469,6 +456,14 @@ class _pdfState extends State<pdf> {
             ])
           ]),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+          });
+          Navigator.of(context).pushNamed('/pdfpriveiw');
+        },
+        child: Icon(Icons.picture_as_pdf),
       ),
     );
   }
@@ -482,4 +477,505 @@ Widget skill(String? name, int index) {
               fontWeight: FontWeight.w400, fontSize: 6, color: Colors.black),
         )
       : Container();
+}
+Future<Uint8List> genrate()
+async {
+  final pdf = pd.Document();
+  final img = await rootBundle.load('asset/image/background.png');
+  final imageBytes = img.buffer.asUint8List();
+  final image = pd.MemoryImage(imgpath!.readAsBytesSync());
+
+  pdf.addPage(pd.Page(
+      pageFormat: PdfPageFormat.a4,
+      build: (pd.Context context) {
+        return  pd.Stack(children: [
+            pd.Image(
+              pd.MemoryImage(imageBytes),fit: pd.BoxFit.cover,
+            ),
+            pd.Row(children: [
+              pd.Center(
+                child: pd.Padding(
+                  padding:
+                  const pd.EdgeInsets.only(left: 25.0, top: 50),
+                  child: pd.Column(
+                      crossAxisAlignment:
+                      pd.CrossAxisAlignment.start,
+                      children: [
+                        pd.Container(
+                          height: 100,
+                          width: 100,
+                          decoration: pd.BoxDecoration(
+                              shape: pd.BoxShape.circle,
+                              color: PdfColors.black,
+                              border: pd.Border.all(
+                                  color: PdfColors.white,
+                                  width: 5)),
+                          child: pd.ClipRRect(
+                            horizontalRadius: 60,
+                              verticalRadius: 60,
+                              child: pd.Image(image,
+                                  fit: pd.BoxFit.cover)),
+                        ),
+                        pd.SizedBox(height: 25),
+                        pd.Text(
+                          'Contact',
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.bold,
+                              fontSize: 10,
+                              color: PdfColors.black),
+                        ),
+                        pd.SizedBox(
+                          height: 5,
+                        ),
+                        pd.Row(
+                          children: [
+                            pd.Text(
+                              'Phone:',
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.normal,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            ),
+                            pd.Text('${l1[0]['phone']}',
+                                style: pd.TextStyle(
+                                    fontWeight:
+                                    pd.FontWeight.normal,
+                                    fontSize: 6,
+                                    color: PdfColors.black))
+                          ],
+                        ),
+                        pd.Row(
+                          children: [
+                            pd.Text(
+                              'Email:',
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.bold,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            ),
+                            pd.Text(l1[0]['emailaddress'],
+                                style: pd.TextStyle(
+                                    fontWeight:
+                                    pd.FontWeight.normal,
+                                    fontSize: 6,
+                                    color: PdfColors.black))
+                          ],
+                        ),
+                        pd.Row(
+                          children: [
+                            pd.Text(
+                              'Nationality:',
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.bold,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            ),
+                            pd.Text(l1[0]['nationality'],
+                                style: pd.TextStyle(
+                                    fontWeight:
+                                    pd.FontWeight.normal,
+                                    fontSize: 6,
+                                    color: PdfColors.black))
+                          ],
+                        ),
+                        pd.Row(
+                          children: [
+                            pd.Text(
+                              'DOB:',
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.bold,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            ),
+                            pd.Text(l1[0]['dateofbirth'],
+                                style: pd.TextStyle(
+                                    fontWeight:
+                                    pd.FontWeight.normal,
+                                    fontSize: 6,
+                                    color: PdfColors.black))
+                          ],
+                        ),
+                        pd.Row(
+                          children: [
+                            pd.Text(
+                              'Gender:',
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.bold,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            ),
+                            pd.Text(l1[0]['gender'],
+                                style: pd.TextStyle(
+                                    fontWeight:
+                                    pd.FontWeight.normal,
+                                    fontSize: 6,
+                                    color: PdfColors.black))
+                          ],
+                        ),
+                        pd.SizedBox(
+                          height: 15,
+                        ),
+                        pd.Text(
+                          'skills',
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.bold,
+                              fontSize: 10,
+                              color: PdfColors.black),
+                        ),
+                        pd.SizedBox(
+                          height: 5,
+                        ),
+                        pd.Column(
+                            crossAxisAlignment:
+                            pd.CrossAxisAlignment.start,
+                            children: List.generate(
+                                l1[5].length,
+                                    (index) => (index > 5)
+                                    ? pd.Text(
+                                  l1[5][index],
+                                  style: pd.TextStyle(
+                                      fontWeight: pd
+                                          .FontWeight.normal,
+                                      fontSize: 6,
+                                      color: PdfColors.black),
+                                )
+                                    : pd.Container())),
+                        pd.SizedBox(
+                          height: 15,
+                        ),
+                        pd.Text(
+                          'Language',
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.bold,
+                              fontSize: 10,
+                              color: PdfColors.black),
+                        ),
+                        pd.SizedBox(
+                          height: 5,
+                        ),
+                        pd.Column(
+                            crossAxisAlignment: pd.CrossAxisAlignment.start,
+                            children: List.generate(l1[8].length,
+                                    (index) => (index > 5)
+                                    ? pd.Text(
+                                  l1[8][index],
+                                  style: pd.TextStyle(
+                                      fontWeight: pd
+                                          .FontWeight.normal,
+                                      fontSize: 6,
+                                      color: PdfColors.black),
+                                )
+                                    : pd.Container())),
+                        pd.SizedBox(
+                          height: 15,
+                        ),
+                        pd.Text(
+                          'Hobbies',
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.bold,
+                              fontSize: 10,
+                              color: PdfColors.black),
+                        ),
+                        pd.SizedBox(
+                          height: 5,
+                        ),
+                        pd.Column(
+                            crossAxisAlignment: pd.CrossAxisAlignment.start,
+                            children: List.generate(l1[6].length,
+                                    (index) => (index > 5)
+                                    ? pd.Text(
+                                  l1[6][index],
+                                  style: pd.TextStyle(
+                                      fontWeight: pd
+                                          .FontWeight.normal,
+                                      fontSize: 6,
+                                      color: PdfColors.black),
+                                )
+                                    : pd.Container()))
+                      ]),
+                ),
+              ),
+              pd.Padding(
+                padding: pd.EdgeInsets.only(
+                    left: 40.0, top: 60, right: 5),
+                child: pd.Column(
+                  crossAxisAlignment: pd.CrossAxisAlignment.start,
+                  children: [
+                    pd.Row(
+                      children: [
+                        pd.Text(
+                          l1[0]['firstname'],
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.bold,
+                              fontSize: 14,
+                              color: PdfColors.black),
+                        ),
+                        pd.SizedBox(width: 5),
+                        pd.Text(l1[0]['lastname'],
+                            style: pd.TextStyle(
+                                fontWeight: pd.FontWeight.bold,
+                                fontSize: 14,
+                                color: PdfColors.black)),
+                      ],
+                    ),
+                    pd.Text(
+                      l1[0]['profession'],
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.normal,
+                          fontSize: 11,
+                          color: PdfColors.black),
+                    ),
+                    pd.SizedBox(height: 8),
+                    if (l1[1] == null)
+                      pd.Container()
+                    else
+                      pd.Container(
+                        width: 190,
+                        child: pd.Text(
+                          l1[1],
+                          overflow: pd.TextOverflow.clip,
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.normal,
+                              fontSize: 7,
+                              color: PdfColors.black),
+                        ),
+                      ),
+                    pd.SizedBox(height: 30),
+                    pd.Text(
+                      'Experience',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.bold,
+                          fontSize: 10,
+                          color: PdfColors.black),
+                    ),
+                    pd.SizedBox(
+                      height: 5,
+                    ),
+                    pd.Row(
+                      children: [
+                        pd.Container(
+                          child: pd.Column(
+                            children: [
+                              pd.Text(
+                                l1[3]['jobtitle'],
+                                style: pd.TextStyle(
+                                    fontWeight: pd.FontWeight.bold,
+                                    fontSize: 6,
+                                    color: PdfColors.black),
+                              ),
+                              pd.Text(
+                                l1[3]['companyname'],
+                                style: pd.TextStyle(
+                                    fontWeight:
+                                    pd.FontWeight.normal,
+                                    fontSize: 6,
+                                    color: PdfColors.black),
+                              )
+                            ],
+                          ),
+                        ),
+                        pd.SizedBox(width: 135),
+                        pd.Text(
+                          '${l1[3]['startyear']} - ${l1[3]['endyear']}',
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.normal,
+                              fontSize: 6,
+                              color: PdfColors.blue200),
+                        ),
+                      ],
+                    ),
+                    pd.SizedBox(
+                      height: 10,
+                    ),
+                    pd.Text(
+                      'Education',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.bold,
+                          fontSize: 10,
+                          color: PdfColors.black),
+                    ),
+                    pd.SizedBox(
+                      height: 5,
+                    ),
+                    pd.Row(
+                      mainAxisAlignment:
+                      pd.MainAxisAlignment.spaceBetween,
+                      children: [
+                        pd.Column(
+                          children: [
+                            pd.Text(
+                              l1[2]['schoolname'],
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.bold,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            ),
+                            pd.Text(
+                              l1[2]['degree'],
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.normal,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            )
+                          ],
+                        ),
+                        pd.SizedBox(width: 115),
+                        pd.Text(
+                          '${l1[2]['startyear']} - ${l1[2]['endyear']}',
+                          textAlign: pd.TextAlign.end,
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.normal,
+                              fontSize: 6,
+                              color: PdfColors.blue200),
+                        ),
+                      ],
+                    ),
+                    pd.SizedBox(
+                      height: 10,
+                    ),
+                    pd.Text(
+                      'Project details',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.bold,
+                          fontSize: 10,
+                          color: PdfColors.black),
+                    ),
+                    pd.SizedBox(
+                      height: 5,
+                    ),
+                    pd.Text(
+                      l1[7]['name'],
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.bold,
+                          fontSize: 6,
+                          color: PdfColors.black),
+                    ),
+                    pd.SizedBox(
+                      height: 10,
+                    ),
+                    pd.Text(
+                      'Publication',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.bold,
+                          fontSize: 10,
+                          color: PdfColors.black),
+                    ),
+                    pd.SizedBox(
+                      height: 5,
+                    ),
+                    pd.Row(
+                      mainAxisAlignment:
+                      pd.MainAxisAlignment.spaceBetween,
+                      children: [
+                        pd.Column(
+                          children: [
+                            pd.Text(
+                              l1[10]['name'],
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.bold,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            ),
+                            pd.Text(
+                              l1[10]['author'],
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.normal,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            )
+                          ],
+                        ),
+                        pd.SizedBox(width: 150),
+                        pd.Text(
+                          l1[10]['date'],
+                          style: pd.TextStyle(
+                              fontWeight: pd.FontWeight.normal,
+                              fontSize: 6,
+                              color: PdfColors.blue200),
+                        )
+                      ],
+                    ),
+                    pd.SizedBox(
+                      height: 10,
+                    ),
+                    pd.Text(
+                      'Achievement',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.bold,
+                          fontSize: 10,
+                          color: PdfColors.black),
+                    ),
+                    pd.SizedBox(
+                      height: 5,
+                    ),
+                    pd.Text(
+                      l1[9]['name'],
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.bold,
+                          fontSize: 6,
+                          color: PdfColors.black),
+                    ),
+                    pd.SizedBox(
+                      height: 10,
+                    ),
+                    pd.Text(
+                      'Reference',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.bold,
+                          fontSize: 10,
+                          color: PdfColors.black),
+                    ),
+                    pd.Row(
+                      mainAxisAlignment:
+                      pd.MainAxisAlignment.spaceBetween,
+                      children: [
+                        pd.Column(
+                          children: [
+                            pd.Text(
+                              l1[4]['name'],
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.bold,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            ),
+                            pd.Text(
+                              l1[4]['jobtitle'],
+                              style: pd.TextStyle(
+                                  fontWeight: pd.FontWeight.normal,
+                                  fontSize: 6,
+                                  color: PdfColors.black),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    pd.SizedBox(height: 5),
+                    pd.Text(
+                      '* ${l1[4]['email']}',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.normal,
+                          fontSize: 6,
+                          color: PdfColors.black),
+                    ),
+                    pd.Text(
+                      '* ${l1[4]['companyname']}',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.normal,
+                          fontSize: 6,
+                          color: PdfColors.black),
+                    ),
+                    pd.Text(
+                      '* ${l1[4]['phone']}',
+                      style: pd.TextStyle(
+                          fontWeight: pd.FontWeight.normal,
+                          fontSize: 6,
+                          color: PdfColors.black),
+                    )
+                  ],
+                ),
+              ),
+            ])
+          ]); // Center
+      }));
+  return await pdf.save();
 }

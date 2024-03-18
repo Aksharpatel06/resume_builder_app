@@ -11,7 +11,7 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
 bool isform =false;
 
-TextEditingController txtname = TextEditingController();
+TextEditingController txtname = TextEditingController(text:'addition');
 String name = txtname.text;
 Map additionaldetails ={
 };

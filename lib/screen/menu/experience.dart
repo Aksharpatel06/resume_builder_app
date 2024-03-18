@@ -11,13 +11,13 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
 bool isform =false;
 
-TextEditingController txttitle = TextEditingController();
+TextEditingController txttitle = TextEditingController(text: 'title');
 String title = txttitle.text;
-TextEditingController txtname = TextEditingController();
+TextEditingController txtname = TextEditingController(text: 'name');
 String name = txtname.text;
-TextEditingController txtstart = TextEditingController();
+TextEditingController txtstart = TextEditingController(text: '2009');
 String start = txtstart.text;
-TextEditingController txtend = TextEditingController();
+TextEditingController txtend = TextEditingController(text: '2019');
 String end = txtend.text;
 
 Map experience ={};
@@ -228,7 +228,7 @@ class _ExperienceState extends State<Experience> {
                                       {
                                         Navigator.of(context).pop();
                                         experience = {
-                                          'jobtitle':title,
+                                          'jobtitle':txttitle.text,
                                           'companyname':name,
                                           'startyear':start,
                                           'endyear':end,
