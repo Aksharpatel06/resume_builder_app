@@ -11,15 +11,15 @@ GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
 bool isform =false;
 
-TextEditingController txtname = TextEditingController(text: 'egj');
+TextEditingController txtname = TextEditingController(text: 'the names of connections the visitor may have in India.');
 String name = txtname.text;
-TextEditingController txttitle = TextEditingController(text: 'cdgh');
+TextEditingController txttitle = TextEditingController(text: 'a specific and formal name given to a role within an organization');
 String title = txttitle.text;
-TextEditingController txtcomname = TextEditingController(text: 'vcdgh');
+TextEditingController txtcomname = TextEditingController(text: 'Tata Consultancy Services');
 String comname = txtcomname.text;
-TextEditingController txtmail = TextEditingController(text: 'vdgszbj');
+TextEditingController txtmail = TextEditingController(text: 'tata@gmail.com');
 String mail = txtmail.text;
-TextEditingController txtphone = TextEditingController(text: 'fgvsdchj');
+TextEditingController txtphone = TextEditingController(text: '98774 96595');
 String phone = txtphone.text;
 
 Map reference ={};
@@ -67,19 +67,19 @@ class _ReferenceState extends State<Reference> {
               (isform)?Padding(
                 padding: const EdgeInsets.only(left: 25.0),
                 child: Container(
-                  height: 450,
+                  height: 480,
                   width: 330,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
                     color: Color(0xffe1e7f8),
                   ),
                   alignment: Alignment.center,
                   child: Container(
-                    height: 420,
+                    height: 450,
                     width: 300,
                     decoration: BoxDecoration(
                       color: Color(0xff1b1a1f),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: SingleChildScrollView(
                       child: Form(

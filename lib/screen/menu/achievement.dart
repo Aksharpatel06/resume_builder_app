@@ -62,7 +62,7 @@ class _AchievementState extends State<Achievement> {
                   height: 200,
                   width: 330,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
                     color: Color(0xffe1e7f8),
                   ),
                   alignment: Alignment.center,
@@ -71,7 +71,7 @@ class _AchievementState extends State<Achievement> {
                     width: 300,
                     decoration: BoxDecoration(
                       color: Color(0xff1b1a1f),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: SingleChildScrollView(
                       child: Form(

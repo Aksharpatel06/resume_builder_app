@@ -65,19 +65,19 @@ class _ExperienceState extends State<Experience> {
               (isform)?Padding(
                 padding: const EdgeInsets.only(left: 25.0),
                 child: Container(
-                  height: 450,
+                  height: 420,
                   width: 330,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
                     color: Color(0xffe1e7f8),
                   ),
                   alignment: Alignment.center,
                   child: Container(
-                    height: 420,
+                    height: 390,
                     width: 300,
                     decoration: BoxDecoration(
                       color: Color(0xff1b1a1f),
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      borderRadius: BorderRadius.all(Radius.circular(5)),
                     ),
                     child: SingleChildScrollView(
                       child: Form(
